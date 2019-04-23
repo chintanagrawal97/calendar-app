@@ -1,6 +1,6 @@
 # Calendar App
 
-A calendar app build using react and redux.
+A calendar app build using react and redux. In this app you can add/edit/delete reminder and todo.
 
 ## Homepage
 ![Screenshot (196)](https://user-images.githubusercontent.com/20434963/56573952-c2b0f480-65df-11e9-8833-09ac5487b406.png)
