@@ -1,33 +1,105 @@
+@import "~antd/dist/antd.css";
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 15% 60% 20% 5%;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cell11 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+
+.cell22 {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
+.calendar-container {
+  height: 100%;
+  width: 100%;
+}
+
+.icon-container {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.week {
+  display: grid;
+  height: 80%;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-column-gap: 2px;
+  grid-template-rows: 20%;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 2%;
+}
+
+.icon > a > img {
+  height: 100%;
+  width: 100%;
+}
+
+.calendar-tile {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar-tile > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-basis: 50%;
+}
+
+.reminder,
+.todo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.items {
+  margin: 2% 0;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .App {
+    grid-template-columns: 3% 94% 3%;
   }
-  to {
-    transform: rotate(360deg);
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5%;
   }
 }

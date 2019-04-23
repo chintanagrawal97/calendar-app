@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import Home from "./components/Home";
+import NewReminder from "./components/NewReminder";
+import UpdateReminder from "./components/UpdateReminder";
+import UpdateTodo from "./components/UpdateTodo";
+import Todo from "./components/Todo";
+import store from "./store";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/reminder/create" component={NewReminder} />
+            <Route exact path="/reminder/:name" component={UpdateReminder} />
+            <Route exact path="/todo/create" component={Todo} />
+            <Route exact path="/todo/:name" component={UpdateTodo} />
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
